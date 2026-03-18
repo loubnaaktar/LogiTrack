@@ -20,4 +20,54 @@ List<LigneCommande> ligneCommandes = new ArrayList<>();
 @ManyToOne
     @JoinColumn(name = "client_id")
     private Client client;
+
+    public Commande(int id, LocalDateTime dateCommande, String statut, List<LigneCommande> ligneCommandes, Client client) {
+        this.id = id;
+        this.dateCommande = dateCommande;
+        this.statut = statut;
+        this.ligneCommandes = ligneCommandes;
+        this.client = client;
+    }
+
+    public Commande(){}
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public LocalDateTime getDateCommande() {
+        return dateCommande;
+    }
+
+    public void setDateCommande(LocalDateTime dateCommande) {
+        this.dateCommande = dateCommande;
+    }
+
+    public String getStatut() {
+        return statut;
+    }
+
+    public void setStatut(String statut) {
+        this.statut = statut;
+    }
+
+    public List<LigneCommande> getLigneCommandes() {
+        return ligneCommandes;
+    }
+
+    public void setLigneCommandes(List<LigneCommande> ligneCommandes) {
+        this.ligneCommandes = ligneCommandes;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
 }
