@@ -31,7 +31,7 @@ public class CommandeService {
         return commandeRepository.findAll();
     }
 
-    public Commande chercherCommandeById(int id){
+    public Commande chercherCommandeById(long id){
         return commandeRepository.findById(id).orElse(null);
     }
 

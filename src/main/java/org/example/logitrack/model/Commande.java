@@ -11,7 +11,7 @@ import java.util.List;
 public class Commande {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private LocalDateTime dateCommande;
     private String statut;
 @OneToMany(mappedBy = "commande")
@@ -21,7 +21,7 @@ List<LigneCommande> ligneCommandes = new ArrayList<>();
     @JoinColumn(name = "client_id")
     private Client client;
 
-    public Commande(int id, LocalDateTime dateCommande, String statut, List<LigneCommande> ligneCommandes, Client client) {
+    public Commande(long id, LocalDateTime dateCommande, String statut, List<LigneCommande> ligneCommandes, Client client) {
         this.id = id;
         this.dateCommande = dateCommande;
         this.statut = statut;
@@ -31,11 +31,11 @@ List<LigneCommande> ligneCommandes = new ArrayList<>();
 
     public Commande(){}
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

@@ -11,7 +11,7 @@ import java.util.List;
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private String nom;
     private String email;
     private String telephone;
@@ -20,22 +20,29 @@ public class Client {
     @OneToMany(mappedBy = "client")
     private List<Commande> commandes = new ArrayList<>();
 
-    public Client(int id, String nom, String email, String telephone, String ville) {
+    public Client(long id, String nom, String email, String telephone, String ville) {
         this.id = id;
         this.nom = nom;
         this.email = email;
         this.telephone = telephone;
         this.ville = ville;
     }
+    public Client(String nom, String email, String telephone, String ville) {
+        this.nom = nom;
+        this.email = email;
+        this.telephone = telephone;
+        this.ville = ville;
+    }
+
 
     public Client() {
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

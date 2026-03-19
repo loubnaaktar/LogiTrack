@@ -16,19 +16,19 @@ public class ClientService {
         this.clientRepository = clientRepository;
     }
 
-    public void ajouterClient(Client client){
-        clientRepository.save(client);
+    public Client ajouterClient(Client client){
+       return clientRepository.save(client);
     }
 
     public List<Client> allClients(){
        return clientRepository.findAll();
     }
 
-    public Client chercherClientById(int id){
+    public Client chercherClientById(long id){
         return clientRepository.findById(id).orElse(null);
     }
 
-    public void supprimerClient(int id){
+    public void supprimerClient(long id){
         clientRepository.deleteById(id);
     }
 }

@@ -16,20 +16,28 @@ public class ProduitService {
         this.produitRepository = produitRepository;
     }
 
-    public void ajouterProduit(Produit produit){
-        produitRepository.save(produit);
-    }
+//    public void ajouterProduit(String nom, String categorie, double prix, int quantiteStock){
+//        Produit produit = new Produit();
+//        produit.setNom(nom);
+//        produit.setCategorie(categorie);
+//        produit.setPrix(prix);
+//        produit.setQuantiteStock(quantiteStock);
+//        produitRepository.save(produit);
+//    }
 
+      public Produit ajouterProduit(Produit produit) {
+         return  produitRepository.save(produit);
+      }
     public List<Produit> allProduits(){
         return produitRepository.findAll();
     }
 
-    public Produit charcherById(int id){
+    public Produit charcherById(long id){
         return produitRepository.findById(id).orElse(null);
     }
 
-    public void supprimerProduit(int id){
-        produitRepository.deleteById(id);
+    public void supprimerProduit(long id){
+    produitRepository.deleteById(id);
     }
 
 }
