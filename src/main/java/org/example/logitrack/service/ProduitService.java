@@ -16,15 +16,6 @@ public class ProduitService {
         this.produitRepository = produitRepository;
     }
 
-//    public void ajouterProduit(String nom, String categorie, double prix, int quantiteStock){
-//        Produit produit = new Produit();
-//        produit.setNom(nom);
-//        produit.setCategorie(categorie);
-//        produit.setPrix(prix);
-//        produit.setQuantiteStock(quantiteStock);
-//        produitRepository.save(produit);
-//    }
-
       public Produit ajouterProduit(Produit produit) {
          return  produitRepository.save(produit);
       }
@@ -40,4 +31,19 @@ public class ProduitService {
     produitRepository.deleteById(id);
     }
 
+    public List<Produit> topProduit(){
+        return produitRepository.findTopOrderedProducts();
+
+    }
+    public List<Produit> getLowStockProduits() {
+        return produitRepository.findLowStockProducts(5);
+    }
+
+    public List<Produit> getProduitsByPrixMax(Double prix) {
+        return produitRepository.findByPrixLessThanEqual(prix);
+    }
+
+    public List<Produit> getProduitsByCategorie(String categorie) {
+        return produitRepository.findByCategorieIgnoreCase(categorie);
+    }
 }
