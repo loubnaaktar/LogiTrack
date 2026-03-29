@@ -22,10 +22,10 @@ public class StatisticsController {
         this.produitService = produitService;
 
     }
-//    @GetMapping("/top-produit")
-//    public Produit topProduit(){
-//
-//    }
+    @GetMapping("/top-produit")
+    public Produit topProduit(){
+return produitService.getTopProduit();
+    }
 
     @GetMapping("/category/{category}")
     public List<Produit> getByCategorie(@PathVariable String category) {

@@ -31,9 +31,12 @@ public class ProduitService {
     produitRepository.deleteById(id);
     }
 
-    public List<Produit> topProduit(){
-        return produitRepository.findTopOrderedProducts();
-
+    public Produit getTopProduit() {
+        return produitRepository
+                .findTopOrderedProducts()
+                .stream()
+                .findFirst()
+                .orElse(null);
     }
     public List<Produit> getLowStockProduits() {
         return produitRepository.findLowStockProducts(5);

@@ -1,0 +1,28 @@
+
+INSERT INTO clients (nom, email, telephone, ville) VALUES
+('Ahmed Ali', 'ahmed@gmail.com', '0600000001', 'Casablanca'),
+('Sara Ben', 'sara@gmail.com', '0600000002', 'Rabat'),
+('Youssef Karim', 'youssef@gmail.com', '0600000003', 'Marrakech');
+
+
+INSERT INTO produits (nom, categorie, prix, quantite_stock) VALUES
+('PC Portable', 'Informatique', 8000, 10),
+('Souris', 'Accessoire', 150, 50),
+('Clavier', 'Accessoire', 300, 30),
+('Ecran', 'Informatique', 2000, 15);
+
+
+INSERT INTO commandes (date_commande, statut, client_id) VALUES
+('2026-03-10 10:00:00', 'EN_COURS', 1),
+('2026-03-11 12:30:00', 'LIVREE', 2),
+('2026-03-12 15:00:00', 'EN_COURS', 1);
+
+
+INSERT INTO ligne_commande (quantite, commande_id, produit_id) VALUES
+(2, 1, 1),  -- PC
+(1, 1, 2),  -- Souris
+(3, 2, 1),  -- PC
+(5, 2, 2),  -- Souris
+(2, 3, 3),  -- Clavier
+(4, 3, 2);  -- Souris
+
